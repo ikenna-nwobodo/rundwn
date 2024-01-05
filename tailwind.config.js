@@ -6,7 +6,7 @@ module.exports = {
       backgroundImage: {
         mainbg: "url(./assets/images/mainbg.png)",
         altbg: "url(./assets/images/altbg.png)",
-        mobile: "url(./assets/images/mobile.png)",
+        mobile: "url(./assets/images/mobile2.png)",
       },
     },
   },

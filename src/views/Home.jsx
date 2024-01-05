@@ -2,9 +2,9 @@ import React from "react";
 import SpotifyAuth from "../auth";
 
 function Home() {
-  const authURl=SpotifyAuth();
+  const authURl = SpotifyAuth();
   return (
-    <div className="text-white h-screen overflow-hidden flex flex-col justify-center  cursor-default">
+    <div className="bg-altbg text-white h-screen overflow-hidden flex flex-col justify-center  cursor-default">
       <div className="px-5 md:px-10 flex flex-col gap-3 md:gap-6">
         <div className="flex items-baseline">
           <p
