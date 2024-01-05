@@ -22,7 +22,7 @@ function Track({ image, name, artist, index }) {
           className="h-[70px] w-[70px] md:w-[170px] md:h-fit shadow-xl md:rounded-none rounded-lg"
         />
         <div className="text-white">
-          <p className="headingmid text-md md:text-xl font-normal tracking-wide md:font-medium text-wrap">
+          <p className="md:headingmid text-md md:text-xl font-semibold md:font-medium text-wrap">
             {name}
           </p>
           <p className="md:heading md:text-sm text-xs text-wrap">{artist}</p>
