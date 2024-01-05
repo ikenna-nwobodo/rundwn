@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import Track from "../components/Track";
 import Pagination from "../components/Pagination";
 
@@ -10,25 +10,35 @@ function Tracks({ tracks }) {
   const currentTracklist = tracks.slice(indexofFirst, indexofLast);
   const paginate = (pageNumber) => setcurrentTracks(pageNumber);
   const [windowSize, setWindowSize] = useState(window.innerWidth);
-  const [tracklist, setTrackList] = useState({});
-  console.log(currentTracklist);
+  const [tracklist, setTrackList] = useState(tracks);
+  // console.log(currentTracklist);
+  const getSize = useCallback(() => {
+    if (windowSize <= 767) {
+      setTrackList(currentTracklist);
+    } else {
+      setTrackList(tracks);
+    }
+  });
+
   useEffect(() => {
     const handleWindowResize = () => {
       setWindowSize(window.innerWidth);
     };
 
     window.addEventListener("resize", handleWindowResize);
-    if (windowSize <= 767) {
-      setTrackList(currentTracklist);
-    } else {
-      setTrackList(tracks);
-    }
+    // if (windowSize <= 767) {
+    //   // console.log("windowsize: " + windowSize);
+    //   setTrackList(currentTracklist);
+    // } else {
+    //   setTrackList(tracks);
+    // }
+    getSize();
     return () => {
       window.removeEventListener("resize", handleWindowResize);
     };
-  }, []);
+  });
 
-  console.log(tracklist);
+  // console.log(tracklist);
   return (
     <div className="p-4 md:p-10 flex flex-col justify-center gap-6 md:gap-10">
       <div className="text-3xl md:text-5xl md:headingmid font-extrabold text-opacity-1-0 text-white capitalize">
@@ -37,7 +47,7 @@ function Tracks({ tracks }) {
       {/* <h2 className="text-white text-3xl">Width: {windowSize}</h2> */}
       {/* grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 */}
       <div className="flex flex-wrap justify-center gap-4 bg-[#ffffff33] md:bg-transparent p-4 md:p-0 rounded-lg bg-opacity-40 border border-[##ffffff4d] md:border-none backdrop-blur-[6.6px]">
-        {tracks.map((songs) => {
+        {tracklist.map((songs) => {
           return (
             <Track
               key={songs.id}
