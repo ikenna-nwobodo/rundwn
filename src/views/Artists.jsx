@@ -4,7 +4,7 @@ import Artist from "../components/Artist";
 function Artists({ artists }) {
   return (
     <div className="h-max p-4 md:p-10 flex flex-col justify-center gap-6 md:gap-10 ">
-      <div className="text-3xl md:text-5xl tracking-wide headingmid font-medium text-opacity-90 text-white capitalize">
+      <div className="text-3xl md:text-5xl tracking-wide headingmid font-bold text-opacity-90 text-white capitalize">
         top artists
       </div>
       <div className="w-full overflow-x-auto no-scrollbar overflow-y-hidden">
