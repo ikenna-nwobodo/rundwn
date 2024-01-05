@@ -32,7 +32,7 @@ function Tracks({ tracks }) {
 
   return (
     <div className="p-4 md:p-10 flex flex-col justify-center gap-6 md:gap-10">
-      <div className="text-3xl md:text-5xl headingmid font-bold tracking-wide text-opacity-90 text-white capitalize">
+      <div className="text-3xl md:text-5xl headingmid font-bold text-opacity-90 text-white capitalize">
         top songs
       </div>
       {/* <h2 className="text-white text-3xl">Width: {windowSize}</h2> */}
