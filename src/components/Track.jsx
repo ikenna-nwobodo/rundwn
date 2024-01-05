@@ -11,7 +11,7 @@ function Track({ image, name, artist, index }) {
   };
   // bg-[#04000033]
   return (
-    <div className="flex justify-between gap-2 text-white w-full md:w-max pr-4 pl-2 py-2 border-[##ffffff4d] md:border-none bg-black bg-opacity-40 md:bg-transparent rounded-lg shadow-xl md:shadow-none">
+    <div className="flex justify-between gap-2 text-white w-full md:w-max pr-4 pl-2 py-2 border-[##ffffff4d] md:border-none bg-opacity-40 md:bg-transparent rounded-lg  md:shadow-none">
       <p className="w-[6%] text-md md:text-4xl md:heading text-white font-bold">
         {index}.
       </p>
