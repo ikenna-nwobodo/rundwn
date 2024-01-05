@@ -16,7 +16,7 @@ function Home() {
           </p>
           <div className="h-3 md:h-6 w-3 md:w-6 bg-white rounded-xl"></div>
         </div>
-        <p className="text-xl font-light">
+        <p className="text-sm md:text-xl font-light">
           A <span className="headingmid text-red-600">RunDwn</span> of your top
           songs and artists in Spotify
         </p>
