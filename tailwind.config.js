@@ -4,9 +4,9 @@ module.exports = {
   theme: {
     extend: {
       backgroundImage: {
-        mainbg: "url(./assets/images/mainbg.png)",
+        mainbg: "url(./assets/images/mainbg2.png)",
         altbg: "url(./assets/images/altbg.png)",
-        mobile: "url(./assets/images/mobile2.png)",
+        mobile: "url(./assets/images/mobile.png)",
       },
     },
   },

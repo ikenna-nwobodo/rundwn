@@ -6,7 +6,7 @@ import Render from "./views/Render";
 function App() {
   return (
     <BrowserRouter>
-      <div className="bg-mobile md:bg-mainbg bg-cover min-h-screen">
+      <div className="bg-mobile md:bg-altbg bg-cover min-h-screen">
         <Routes>
           <Route path="/" index element={<Home />} />
           <Route element={<Render />} path="callback" />
