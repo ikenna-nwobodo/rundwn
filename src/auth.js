@@ -34,9 +34,9 @@ export const getUser = async (token) => {
   return data;
 };
 
-export const getTopArtist = async (token) => {
+export const getTopArtist = async (token, time_range) => {
   const res = await fetch(
-    "https://api.spotify.com/v1/me/top/artists?time_range=short_term&limit=10",
+    `https://api.spotify.com/v1/me/top/artists?time_range=${time_range}&limit=10`,
     {
       headers: { Authorization: `Bearer ${token}` },
     }
@@ -45,9 +45,9 @@ export const getTopArtist = async (token) => {
   return data;
 };
 
-export const getTopTracks = async (token) => {
+export const getTopTracks = async (token, time_range) => {
   const res = await fetch(
-    "https://api.spotify.com/v1/me/top/tracks?time_range=short_term&limit=10",
+    `https://api.spotify.com/v1/me/top/tracks?time_range=${time_range}&limit=10`,
     {
       headers: { Authorization: `Bearer ${token}` },
     }
