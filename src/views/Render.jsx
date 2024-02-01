@@ -3,6 +3,7 @@ import Nav from "../components/Nav";
 import { getReturnedParamsFromAuth, getTopArtist, getTopTracks } from "../auth";
 import Artists from "./Artists";
 import Tracks from "./Tracks";
+import ScrollView from "../ScrollView";
 
 function Render() {
   const [topArtists, setTopArtist] = useState([]);
@@ -30,11 +31,11 @@ function Render() {
   };
   console.log(timeRange);
   return (
-    <div>
+    <ScrollView>
       <Nav timerange={timerange} />
       <Artists artists={topArtists} />
       <Tracks tracks={topSongs} />
-    </div>
+    </ScrollView>
   );
 }
 

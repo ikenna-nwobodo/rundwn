@@ -7,7 +7,7 @@ function Artists({ artists }) {
       <div className="text-3xl md:text-5xl md:headingmid font-bold text-opacity-90 text-white capitalize">
         top artists
       </div>
-      <div className="w-full overflow-x-auto no-scrollbar overflow-y-hidden">
+      <div className="w-full overflow-x-auto no-scrollbar p-3 overflow-y-hidden">
         <div className="flex flex-row gap-8 w-full">
           {artists.map((artist) => {
             return (
