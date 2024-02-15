@@ -34,6 +34,29 @@ export const getUser = async (token) => {
   return data;
 };
 
+export const getCurrent = async (token) => {
+  const res = await fetch(
+    `https://api.spotify.com/v1/me/player/currently-playing`,
+    {
+      headers: { Authorization: `Bearer ${token}` },
+    }
+  );
+  const data = await res.json();
+  return data;
+};
+
+export const getRecents = async (token) => {
+  const res = await fetch(
+    `https://api.spotify.com/v1/me/player/recently-played?limit=10`,
+    {
+      headers: { Authorization: `Bearer ${token}` },
+    }
+  );
+  const data = await res.json();
+  console.log(data);
+  return data;
+};
+
 export const getTopArtist = async (token, time_range) => {
   const res = await fetch(
     `https://api.spotify.com/v1/me/top/artists?time_range=${time_range}&limit=10`,
