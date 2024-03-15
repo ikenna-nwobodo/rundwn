@@ -9,6 +9,7 @@ function Render() {
   const [topArtists, setTopArtist] = useState([]);
   const [topSongs, setTopSongs] = useState([]);
   const [timeRange, setTimeRange] = useState("short_term");
+  const [trackSize, setSize] = useState(10);
   // const selcted_timeRange = useRef();
 
   useEffect(() => {
@@ -19,22 +20,25 @@ function Render() {
         console.log(selectedRange);
         const artisteData = await getTopArtist(access_token, timeRange);
         setTopArtist(artisteData.items);
-        const songData = await getTopTracks(access_token, timeRange);
+        const songData = await getTopTracks(access_token, timeRange, trackSize);
         setTopSongs(songData.items);
       };
       setData();
     }
-  }, [timeRange]);
+  }, [timeRange, trackSize]);
 
   const timerange = (range) => {
     setTimeRange(range);
+  };
+  const songSize = (size) => {
+    setSize(size);
   };
   console.log(timeRange);
   return (
     <ScrollView>
       <Nav timerange={timerange} />
       <Artists artists={topArtists} />
-      <Tracks tracks={topSongs} />
+      <Tracks tracks={topSongs} size={songSize} />
     </ScrollView>
   );
 }

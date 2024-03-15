@@ -45,9 +45,9 @@ export const getTopArtist = async (token, time_range) => {
   return data;
 };
 
-export const getTopTracks = async (token, time_range) => {
+export const getTopTracks = async (token, time_range, size) => {
   const res = await fetch(
-    `https://api.spotify.com/v1/me/top/tracks?time_range=${time_range}&limit=10`,
+    `https://api.spotify.com/v1/me/top/tracks?time_range=${time_range}&limit=${size}`,
     {
       headers: { Authorization: `Bearer ${token}` },
     }

@@ -74,6 +74,15 @@ p {
   background-color: white;
   color: black;
 }
-.scrollz{
+.scrollz {
   scrollbar-width: 2px;
+}
+.react-multi-carousel-item {
+  width: max-content !important;
+  /* margin-right: 1rem !important; */
+}
+@media (max-width: 768px) {
+  .react-multi-carousel-list {
+    display: none !important;
+  }
 }
