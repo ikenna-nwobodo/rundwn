@@ -16,7 +16,7 @@ import Recent from "./Recent";
 function Render() {
   const [topArtists, setTopArtist] = useState([]);
   const [topSongs, setTopSongs] = useState([]);
-  const [currentTrack, setCurrent] = useState([]);
+  const [currentTrack, setCurrent] = useState(null);
   const [recents, setRecents] = useState([]);
   const [timeRange, setTimeRange] = useState("short_term");
   const [trackSize, setSize] = useState(10);
@@ -40,7 +40,7 @@ function Render() {
       setData();
     }
   }, [timeRange, trackSize]);
-
+  console.log(currentTrack);
   const timerange = (range) => {
     setTimeRange(range);
   };
@@ -52,11 +52,12 @@ function Render() {
   return (
     <ScrollView>
       <Nav timerange={timerange} />
-      {currentTrack.is_playing && (
+      {currentTrack !== null && (
         <CurrentlyPlaying currentTrack={currentTrack} />
       )}
       <Artists artists={topArtists} />
       <Tracks tracks={topSongs} size={songSize} />
+      <Recent recents={recents} />
     </ScrollView>
   );
 }
