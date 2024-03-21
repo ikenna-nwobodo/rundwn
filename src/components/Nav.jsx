@@ -37,7 +37,7 @@ function Nav({ timerange }) {
         <p className="headingmid text-3xl md:leading-4 text-white">RunDwn</p>
         <div className="h-2 w-2 bg-white rounded-xl"></div>
       </div>
-      <div className="relative text-sm min-w-[10%] font-medium rounded-sm outline-0  border-[#EAEAEA]">
+      <div className="relative text-black text-sm min-w-[10%] font-medium rounded-sm outline-0  border-[#EAEAEA]">
         <div
           onClick={() => setOpen(!open)}
           className={`bg-white w-full p-2 flex items-center cursor-pointer justify-between no-scrollbar rounded ${

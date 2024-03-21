@@ -67,9 +67,9 @@ p {
 .overlay {
   grid-area: 1 / 1;
 }
-.artist {
+/* .artist {
   box-shadow: 20px -30px 0px 0px rgba(255, 255, 25, 1) !important;
-}
+} */
 .active {
   background-color: white;
   color: black;
@@ -86,8 +86,17 @@ p {
     display: none !important;
   }
 }
-
-.rec{
+.rec {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
+}
+.btn {
+  box-shadow: 7px 7px 0px 0px rgb(250, 250, 250);
+}
+.btn:hover {
+  box-shadow: none;
+}
+
+.artist:hover .artist-img {
+  scale: 1.1;
 }

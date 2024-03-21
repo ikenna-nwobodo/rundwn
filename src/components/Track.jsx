@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 
-function Track({ image, name, artist, index }) {
+function Track({ image, name, artist, index, trackUrl, artistUrl }) {
   useEffect(() => {
     if (index < 10) {
       updatecount();
@@ -21,11 +21,24 @@ function Track({ image, name, artist, index }) {
           alt="pic"
           className="h-[70px] w-[70px] md:w-[170px] md:h-fit shadow-xl md:rounded-none rounded-lg"
         />
-        <div className="text-white">
-          <p className="md:headingmid text-md md:text-xl font-semibold md:font-medium text-wrap">
+        <div className="text-white flex flex-col gap-1">
+          <a
+            href={trackUrl}
+            target="_blank"
+            rel="noreferrer"
+            className="md:headingmid text-md md:text-xl font-semibold md:font-medium text-wrap hover:underline cursor-pointer"
+          >
             {name}
-          </p>
-          <p className="md:heading md:text-sm text-xs text-wrap">{artist}</p>
+          </a>
+          <div className="flex flex-wrap truncate gap-1">
+            {artist.map((ar) => {
+              return (
+                <p className="md:heading md:text-sm w-max text-xs text-wrap hover:underline cursor-pointer">
+                  {ar.name}
+                </p>
+              );
+            })}
+          </div>
         </div>
       </div>
     </div>

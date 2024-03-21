@@ -8,6 +8,9 @@ module.exports = {
         altbg: "url(./assets/images/altbg.png)",
         mobile: "url(./assets/images/mobile.png)",
       },
+      colors: {
+        primary: "#1E2221",
+      },
     },
   },
   plugins: [],

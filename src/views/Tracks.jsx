@@ -37,7 +37,8 @@ function Tracks({ tracks, size }) {
       setLimit(20);
     }
   };
-  console.log(limit);
+  // console.log(limit);
+  
   size(limit);
 
   return (
@@ -70,8 +71,9 @@ function Tracks({ tracks, size }) {
               key={songs.id}
               name={songs.name}
               image={songs.album.images[1].url}
-              artist={songs.artists[0].name}
+              artist={songs.artists}
               index={tracks.lastIndexOf(songs) + 1}
+              trackUrl={songs.external_urls.spotify}
             />
           );
         })}

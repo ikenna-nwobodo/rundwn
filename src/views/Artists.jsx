@@ -41,6 +41,7 @@ function Artists({ artists }) {
               image={artist.images[0].url}
               name={artist.name}
               index={artists.lastIndexOf(artist) + 1}
+              url={artist.external_urls.spotify}
             />
           );
         })}
@@ -54,6 +55,7 @@ function Artists({ artists }) {
                 image={artist.images[0].url}
                 name={artist.name}
                 index={artists.lastIndexOf(artist) + 1}
+                url={artist.external_urls.spotify}
               />
             );
           })}

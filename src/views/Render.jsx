@@ -32,32 +32,29 @@ function Render() {
         setTopArtist(artisteData.items);
         const songData = await getTopTracks(access_token, timeRange, trackSize);
         setTopSongs(songData.items);
-        const current = await getCurrent(access_token);
-        setCurrent(current);
+        // const current = await getCurrent(access_token);
+        // setCurrent(current);
         const recent = await getRecents(access_token);
         setRecents(recent.items);
       };
       setData();
     }
   }, [timeRange, trackSize]);
-  console.log(currentTrack);
   const timerange = (range) => {
     setTimeRange(range);
   };
   const songSize = (size) => {
     setSize(size);
   };
-  console.log(timeRange);
-  console.log(recents);
   return (
     <ScrollView>
       <Nav timerange={timerange} />
-      {currentTrack !== null && (
+      {/* {currentTrack !== null && (
         <CurrentlyPlaying currentTrack={currentTrack} />
-      )}
+      )} */}
       <Artists artists={topArtists} />
       <Tracks tracks={topSongs} size={songSize} />
-      <Recent recents={recents} />
+      {/* {recents?.length > 0 && <Recent recents={recents} />} */}
     </ScrollView>
   );
 }
