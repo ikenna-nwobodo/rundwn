@@ -21,7 +21,7 @@ function Track({ image, name, artist, index, trackUrl, artistUrl }) {
           alt="pic"
           className="h-[70px] w-[70px] md:w-[170px] md:h-fit shadow-xl md:rounded-none rounded-lg"
         />
-        <div className="text-white flex flex-col gap-1">
+        <div className="text-white flex flex-col gap-1.5">
           <a
             href={trackUrl}
             target="_blank"
@@ -30,6 +30,15 @@ function Track({ image, name, artist, index, trackUrl, artistUrl }) {
           >
             {name}
           </a>
+          {/* <div className="flex flex-wrap truncate gap-1">
+            {artist.map((ar) => {
+              return (
+                <p className="md:heading md:text-sm w-max text-xs text-wrap hover:underline cursor-pointer">
+                  {ar.name}
+                </p>
+              );
+            })}
+          </div> */}
           <div className="flex flex-wrap truncate gap-1">
             {artist.map((ar) => {
               return (
