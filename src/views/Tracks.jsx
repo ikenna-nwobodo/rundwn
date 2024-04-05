@@ -38,7 +38,7 @@ function Tracks({ tracks, size }) {
     }
   };
   // console.log(limit);
-  
+  console.log(tracks);
   size(limit);
 
   return (
@@ -63,8 +63,8 @@ function Tracks({ tracks, size }) {
         </div>
       </div>
       {/* <h2 className="text-white text-3xl">Width: {windowSize}</h2> */}
-      {/* grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 */}
-      <div className="flex flex-wrap justify-center gap-4 bg-[#ffffff33] md:bg-transparent py-4 px-2 md:p-0 rounded-lg bg-opacity-40 border border-[##ffffff4d] md:border-none backdrop-blur-[6.6px]">
+      {/* grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5  bg-[#ffffff33]*/}
+      <div className="flex flex-wrap justify-center md:gap-2 gap-4 md:bg-transparent py-4 px-2 md:p-0 rounded-lg bg-opacity-40 border border-[##ffffff4d] md:border-none backdrop-blur-[6.6px]">
         {tracklist.map((songs) => {
           return (
             <Track

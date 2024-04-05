@@ -22,6 +22,7 @@
   }
 }
 ::-webkit-scrollbar {
+  display: none;
   width: 2px;
 }
 ::-webkit-scrollbar-track {
@@ -97,6 +98,11 @@ p {
   box-shadow: none;
 }
 
-.artist:hover .artist-img {
-  scale: 1.1;
+.artistnm:hover .artist-img {
+  scale: 1.05;
+}
+
+.artistnm:hover .arx {
+  background-color: rgba(0, 0, 0, 0.2) !important;
+  
 }
