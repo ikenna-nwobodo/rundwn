@@ -12,7 +12,17 @@ function Tracks({ tracks, size }) {
   const [windowSize, setWindowSize] = useState(window.innerWidth);
   const [tracklist, setTrackList] = useState(tracks);
   const [limit, setLimit] = useState(10);
-
+  const [active, setActive] = useState(1);
+  const [dataTabs, setDataTabs] = useState([
+    {
+      id: 1,
+      tabTitle: "Top 10",
+    },
+    {
+      id: 2,
+      tabTitle: "Top 20",
+    },
+  ]);
   const getSize = useCallback(() => {
     if (windowSize <= 767) {
       setTrackList(currentTracklist);
@@ -38,8 +48,25 @@ function Tracks({ tracks, size }) {
     }
   };
   // console.log(limit);
-  console.log(tracks);
+  // console.log(tracks);
   size(limit);
+  const TabLink = ({ id, tabTitle, isActive, onClick }) => {
+    return (
+      <div
+        onClick={() => navigate(id)}
+        className={`text-xs bg-transparent cursor-pointer hover:bg-white/60 hover:text-black border border-white rounded-xl px-3.5 text-white font-medium py-1 ${
+          isActive ? "active" : ""
+        }`}
+      >
+        {tabTitle}
+      </div>
+    );
+  };
+
+  const navigate = (id) => {
+    setActive(id);
+    updateLimit(id);
+  };
 
   return (
     <div className="p-4 md:p-10 flex flex-col justify-center gap-6 md:gap-10">
@@ -47,20 +74,15 @@ function Tracks({ tracks, size }) {
         <div className="text-3xl md:text-5xl md:headingmid font-bold text-opacity-90 text-white capitalize">
           top songs
         </div>
-        <div className="flex items-center gap-4">
-          <button
-            onClick={() => updateLimit(1)}
-            className="text-xs bg-transparent hover:bg-white/60 hover:text-black border border-white rounded-xl px-3.5 text-white font-medium py-1"
-          >
-            Top 10
-          </button>
-          <button
-            onClick={() => updateLimit(2)}
-            className="text-xs bg-transparent hover:bg-white/60 hover:text-black border border-white rounded-xl px-3.5 text-white font-medium py-1"
-          >
-            Top 20
-          </button>
-        </div>
+        {dataTabs.map((item) => (
+          <li key={item.id} className="flex items-center gap-4">
+            <TabLink
+              {...item}
+              isActive={active === item.id}
+              onClick={navigate}
+            />
+          </li>
+        ))}
       </div>
       {/* <h2 className="text-white text-3xl">Width: {windowSize}</h2> */}
       {/* grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5  bg-[#ffffff33]*/}

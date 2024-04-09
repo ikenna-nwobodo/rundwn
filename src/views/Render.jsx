@@ -10,6 +10,7 @@ import {
 import Artists from "./Artists";
 import Tracks from "./Tracks";
 import ScrollView from "../ScrollView";
+import ScaleLoader from "react-spinners/ScaleLoader";
 import CurrentlyPlaying from "./CurrentlyPlaying";
 import Recent from "./Recent";
 
@@ -20,6 +21,8 @@ function Render() {
   const [recents, setRecents] = useState([]);
   const [timeRange, setTimeRange] = useState("short_term");
   const [trackSize, setSize] = useState(10);
+  const [loading, setLoading] = useState(true);
+
   // const selcted_timeRange = useRef();
 
   useEffect(() => {
@@ -36,6 +39,7 @@ function Render() {
         // setCurrent(current);
         const recent = await getRecents(access_token);
         setRecents(recent.items);
+        setLoading(false);
       };
       setData();
     }
@@ -49,11 +53,20 @@ function Render() {
   return (
     <ScrollView>
       <Nav timerange={timerange} />
-      {/* {currentTrack !== null && (
+      {/* {!loading && currentTrack !== null && (
         <CurrentlyPlaying currentTrack={currentTrack} />
       )} */}
-      <Artists artists={topArtists} />
-      <Tracks tracks={topSongs} size={songSize} />
+      {!loading ? (
+        <>
+          <Artists artists={topArtists} />
+          <Tracks tracks={topSongs} size={songSize} />
+        </>
+      ) : (
+        <div className="absolute top-0 left-0 w-full h-screen flex items-center justify-center">
+          <ScaleLoader color="#ffffff" />
+        </div>
+      )}
+
       {/* {recents?.length > 0 && <Recent recents={recents} />} */}
     </ScrollView>
   );
