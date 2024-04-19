@@ -23,6 +23,7 @@ function Tracks({ tracks, size }) {
       tabTitle: "Top 20",
     },
   ]);
+
   const getSize = useCallback(() => {
     if (windowSize <= 767) {
       setTrackList(currentTracklist);
@@ -30,6 +31,7 @@ function Tracks({ tracks, size }) {
       setTrackList(tracks);
     }
   });
+
   useEffect(() => {
     const handleWindowResize = () => {
       setWindowSize(window.innerWidth);
@@ -39,7 +41,8 @@ function Tracks({ tracks, size }) {
     return () => {
       window.removeEventListener("resize", handleWindowResize);
     };
-  });
+  }, []);
+
   const updateLimit = (id) => {
     if (id === 1) {
       setLimit(10);
@@ -50,6 +53,7 @@ function Tracks({ tracks, size }) {
   // console.log(limit);
   // console.log(tracks);
   size(limit);
+
   const TabLink = ({ id, tabTitle, isActive, onClick }) => {
     return (
       <div
@@ -74,15 +78,15 @@ function Tracks({ tracks, size }) {
         <div className="text-3xl md:text-5xl md:headingmid font-bold text-opacity-90 text-white capitalize">
           top songs
         </div>
-        {dataTabs.map((item) => (
-          <li key={item.id} className="flex items-center gap-4">
+        <div className="flex items-center gap-2">
+          {dataTabs.map((item) => (
             <TabLink
               {...item}
               isActive={active === item.id}
               onClick={navigate}
             />
-          </li>
-        ))}
+          ))}
+        </div>
       </div>
       {/* <h2 className="text-white text-3xl">Width: {windowSize}</h2> */}
       {/* grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5  bg-[#ffffff33]*/}
