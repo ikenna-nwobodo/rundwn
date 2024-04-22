@@ -41,36 +41,34 @@ function Tracks({ tracks, size }) {
     return () => {
       window.removeEventListener("resize", handleWindowResize);
     };
-  }, []);
+  });
 
-  const updateLimit = (id) => {
-    if (id === 1) {
-      setLimit(10);
-    } else if (id === 2) {
-      setLimit(20);
-    }
-  };
-  // console.log(limit);
-  // console.log(tracks);
+  // const updateLimit = (id) => {
+  //   if (id === 1) {
+  //     setLimit(10);
+  //   } else if (id === 2) {
+  //     setLimit(20);
+  //   }
+  // };
   size(limit);
 
-  const TabLink = ({ id, tabTitle, isActive, onClick }) => {
-    return (
-      <div
-        onClick={() => navigate(id)}
-        className={`text-xs bg-transparent cursor-pointer hover:bg-white/60 hover:text-black border border-white rounded-xl px-3.5 text-white font-medium py-1 ${
-          isActive ? "active" : ""
-        }`}
-      >
-        {tabTitle}
-      </div>
-    );
-  };
+  // const TabLink = ({ id, tabTitle, isActive, onClick }) => {
+  //   return (
+  //     <div
+  //       onClick={() => navigate(id)}
+  //       className={`text-xs bg-transparent cursor-pointer hover:bg-white/60 hover:text-black border border-white rounded-xl px-3.5 text-white font-medium py-1 ${
+  //         isActive ? "active" : ""
+  //       }`}
+  //     >
+  //       {tabTitle}
+  //     </div>
+  //   );
+  // };
 
-  const navigate = (id) => {
-    setActive(id);
-    updateLimit(id);
-  };
+  // const navigate = (id) => {
+  //   setActive(id);
+  //   updateLimit(id);
+  // };
 
   return (
     <div className="p-4 md:p-10 flex flex-col justify-center gap-6 md:gap-10">
@@ -78,15 +76,17 @@ function Tracks({ tracks, size }) {
         <div className="text-3xl md:text-5xl md:headingmid font-bold text-opacity-90 text-white capitalize">
           top songs
         </div>
-        <div className="flex items-center gap-2">
+        {/* <ul className="flex items-center gap-1 md:gap-4">
           {dataTabs.map((item) => (
-            <TabLink
-              {...item}
-              isActive={active === item.id}
-              onClick={navigate}
-            />
+            <li key={item.id} className="flex items-center gap-2 md:gap-4">
+              <TabLink
+                {...item}
+                isActive={active === item.id}
+                onClick={navigate}
+              />
+            </li>
           ))}
-        </div>
+        </ul> */}
       </div>
       {/* <h2 className="text-white text-3xl">Width: {windowSize}</h2> */}
       {/* grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5  bg-[#ffffff33]*/}
