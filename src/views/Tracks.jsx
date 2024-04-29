@@ -11,7 +11,7 @@ function Tracks({ tracks, size }) {
   const paginate = (pageNumber) => setcurrentTracks(pageNumber);
   const [windowSize, setWindowSize] = useState(window.innerWidth);
   const [tracklist, setTrackList] = useState(tracks);
-  const [limit, setLimit] = useState(10);
+  const [limit, setLimit] = useState(15);
   const [active, setActive] = useState(1);
   const [dataTabs, setDataTabs] = useState([
     {

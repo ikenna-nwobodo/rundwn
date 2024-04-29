@@ -32,7 +32,7 @@ function Nav({ timerange }) {
   // console.log(range);
 
   return (
-    <div className="sticky top-0 z-40 flex justify-between items-center backdrop-blur-xl px-4 md:px-10 py-4">
+    <div className="sticky top-0 z-[80] flex justify-between items-center backdrop-blur-xl px-4 md:px-10 py-4">
       <div className="flex gap-1 items-baseline">
         <p className="headingmid text-3xl md:leading-4 text-white">RunDwn</p>
         <div className="h-2 w-2 bg-white rounded-xl"></div>

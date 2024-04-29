@@ -2,7 +2,7 @@ import React from "react";
 
 function Artist({ image, name, index, url }) {
   return (
-    <div className="md:pl-4 flex gap-4 w-max">
+    <div className="md:pl-4 flex gap-4 w-max artist">
       <p className="text-2xl md:text-4xl md:heading text-white font-bold">
         {index}.
       </p>

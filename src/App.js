@@ -6,7 +6,7 @@ import Render from "./views/Render";
 function App() {
   return (
     <BrowserRouter>
-      <div className="bg-primary text-white  grid place-items-center min-h-screen">
+      <div className="bg-primary text-white fixed top-0 left-0 w-full grid place-items-center min-h-screen">
         <Routes>
           <Route path="/" index element={<Home />} />
           <Route element={<Render />} path="callback" />

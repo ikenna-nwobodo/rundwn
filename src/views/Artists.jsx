@@ -1,26 +1,34 @@
-import React, { useRef } from "react";
+import React, { useEffect, useRef } from "react";
 import Artist from "../components/Artist";
-import Carousel from "react-multi-carousel";
-import "react-multi-carousel/lib/styles.css";
+// import Carousel from "react-multi-carousel";
+// import "react-multi-carousel/lib/styles.css";
+// import { useAnimate, stagger, motion } from "framer-motion";
+import gsap from "gsap";
+import { useGSAP } from "@gsap/react";
 
 function Artists({ artists }) {
   const scrollRef = useRef(null);
 
   const scrollRight = (offset) => {
-    console.log(scrollRef.current?.offsetWidth);
-    console.log(scrollRef.current?.scrollWidth);
-    console.log(scrollRef.current.scrollLeft === 0);
     scrollRef.current.scrollLeft += offset;
   };
   const scrollLeft = (offset) => {
-    console.log(scrollRef.current?.offsetWidth);
-    console.log(scrollRef.current?.scrollWidth);
-    console.log(
-      scrollRef.current.scrollLeft === scrollRef.current?.scrollWidth
-    );
     scrollRef.current.scrollLeft += offset;
-    // scrollRef.current?.scrollTo(scrollRef.current?.scrollWidth - 200, 0);
   };
+  useGSAP(() => {
+    const tl = gsap.timeline();
+    tl.fromTo(
+      ".artist",
+      { y: -10, opacity: 0 },
+      {
+        duration: 0.5,
+        y: 0,
+        opacity: 1,
+        ease: "circ",
+        stagger: 0.4,
+      }
+    );
+  });
 
   return (
     <div className="h-max p-4 md:p-10 flex flex-col justify-center gap-6 md:gap-10 ">
