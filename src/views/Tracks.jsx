@@ -42,33 +42,8 @@ function Tracks({ tracks, size }) {
       window.removeEventListener("resize", handleWindowResize);
     };
   });
-
-  // const updateLimit = (id) => {
-  //   if (id === 1) {
-  //     setLimit(10);
-  //   } else if (id === 2) {
-  //     setLimit(20);
-  //   }
-  // };
   size(limit);
 
-  // const TabLink = ({ id, tabTitle, isActive, onClick }) => {
-  //   return (
-  //     <div
-  //       onClick={() => navigate(id)}
-  //       className={`text-xs bg-transparent cursor-pointer hover:bg-white/60 hover:text-black border border-white rounded-xl px-3.5 text-white font-medium py-1 ${
-  //         isActive ? "active" : ""
-  //       }`}
-  //     >
-  //       {tabTitle}
-  //     </div>
-  //   );
-  // };
-
-  // const navigate = (id) => {
-  //   setActive(id);
-  //   updateLimit(id);
-  // };
 
   return (
     <div className="p-4 md:p-10 flex flex-col justify-center gap-6 md:gap-10">
@@ -76,21 +51,8 @@ function Tracks({ tracks, size }) {
         <div className="text-3xl md:text-5xl md:headingmid font-bold text-opacity-90 text-white capitalize">
           top songs
         </div>
-        {/* <ul className="flex items-center gap-1 md:gap-4">
-          {dataTabs.map((item) => (
-            <li key={item.id} className="flex items-center gap-2 md:gap-4">
-              <TabLink
-                {...item}
-                isActive={active === item.id}
-                onClick={navigate}
-              />
-            </li>
-          ))}
-        </ul> */}
       </div>
-      {/* <h2 className="text-white text-3xl">Width: {windowSize}</h2> */}
-      {/* grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5  bg-[#ffffff33]*/}
-      <div className="flex flex-wrap justify-center md:gap-2 gap-4 md:bg-transparent py-4 px-2 md:p-0 rounded-lg bg-opacity-40 border border-[##ffffff4d] md:border-none backdrop-blur-[6.6px]">
+      <div className="flex flex-col items-center gap-4 divide-y divide-neutral-300/30 first:!pt-0">
         {tracklist.map((songs) => {
           return (
             <Track
@@ -98,6 +60,7 @@ function Tracks({ tracks, size }) {
               name={songs.name}
               image={songs.album.images[1].url}
               artist={songs.artists}
+              explicit={songs.explicit}
               index={tracks.lastIndexOf(songs) + 1}
               trackUrl={songs.external_urls.spotify}
             />

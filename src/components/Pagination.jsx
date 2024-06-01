@@ -12,12 +12,12 @@ function Pagination({ tracks, totalTracks, paginate }) {
     setActivePage(number);
   };
   return (
-    <div className="flex md:hidden gap-4 text-white">
+    <div className="flex mt-4 mb-10 md:hidden gap-4 text-white">
       {pageNumbers.map((number) => {
         return (
           <p
             key={number}
-            className={`border border-white font-light w-10 h-10 text-center items-center justify-center flex text-xs cursor-pointer rounded-md ${
+            className={`ring-1 ring-inset ring-white font-light w-10 h-10 text-center items-center justify-center flex text-xs cursor-pointer rounded-md ${
               activePage === number ? "active" : ""
             }`}
             onClick={() => {

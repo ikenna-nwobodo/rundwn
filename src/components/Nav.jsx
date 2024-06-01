@@ -51,7 +51,7 @@ function Nav({ timerange }) {
                 : selected
               : placeholder}
           </p>
-          <span class={`material-symbols-outlined ${open && "rotate-180"}`}>
+          <span class={`material-symbols-rounded ${open && "rotate-180"}`}>
             expand_more
           </span>
           {/* <BiChevronDown size={20} className={`${open && "rotate-180"}`} /> */}
