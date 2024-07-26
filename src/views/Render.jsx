@@ -32,6 +32,7 @@ function Render() {
         // const selectedRange = timeRange;
         // console.log(selectedRange);
         const artisteData = await getTopArtist(access_token, timeRange);
+        console.log(artisteData);
         setTopArtist(artisteData.items);
         const songData = await getTopTracks(access_token, timeRange, trackSize);
         setTopSongs(songData.items);
@@ -58,7 +59,7 @@ function Render() {
       )} */}
       {!loading ? (
         <>
-          <Artists artists={topArtists} />
+          <Artists artists={topArtists} range={timeRange} />
           <Tracks tracks={topSongs} size={songSize} />
         </>
       ) : (
