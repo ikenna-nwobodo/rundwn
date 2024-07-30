@@ -30,7 +30,7 @@ function Artist({ image, name, index, url }) {
         >
           <div
             style={{ "--image-url": `url('${image}')` }}
-            className={`h-[150px] bg-[image:var(--image-url)] hover:scale-105 bg-cover bg-center w-[150px] rounded-full bg-teal-700`}
+            className={`h-[150px] bg-[image:var(--image-url)] hover:scale-105 bg-cover bg-center w-[150px] rounded-full bg-transparent`}
           ></div>
         </a>
         <a

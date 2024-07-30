@@ -1,10 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import Artist from "../components/Artist";
 import domtoimage from "dom-to-image";
-import { saveAs } from "file-saver";
-// import Carousel from "react-multi-carousel";
-// import "react-multi-carousel/lib/styles.css";
-// import { useAnimate, stagger, motion } from "framer-motion";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 
@@ -55,7 +51,7 @@ function Artists({ artists, range }) {
   // range(seletedRange)
 
   return (
-    <div className="h-max p-4 md:p-10 flex flex-col justify-center gap-6 md:gap-10 ">
+    <div className="h-max p-4 md:p-10 flex flex-col relative overflow-hidden justify-center gap-6 md:gap-10 ">
       <div className="text-3xl md:text-5xl md:headingmid font-bold text-opacity-90 text-white capitalize">
         top artists
       </div>
@@ -78,7 +74,7 @@ function Artists({ artists, range }) {
         </div>
         <button
           onClick={download}
-          className="bg-white flex items-center justify-center gap-1 hover:bg-white/40 mt-8 hover:text-white text-primary font-medium tracking-tight text-sm p-1 sm:size-14 rounded sm:rounded-full fixed top-12 right-8 sm:top-24 sm:right-44 z-50"
+          className="bg-white flex items-center justify-center gap-1 mt-8 text-primary font-medium tracking-tight text-sm p-1 md:size-14 rounded md:rounded-full fixed top-12 right-8 md:top-24 md:right-44 z-50"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -112,23 +108,23 @@ function Artists({ artists, range }) {
           </span>
         </div>
       </div>
-      <div className="artist-img-container absolute opacity-0 -z-10">
-        <div id="artist-capture" className="bg-primary w-max pr-28 py-8 pl-10">
+      <div className="artist-img-container absolute top-10 opacity-0 -z-10">
+        <div id="artist-capture" className="bg-primary w-[500px] pr-28 py-20 pl-10">
           <div className="x-box-cont">
-            <p className="headingmid text-xl text-white">
-              My Top Artists <br /> Range: {seletedRange}
+            <p className="headingmid text-3xl font-bold tracking-tight text-white">
+              My Top Artists
             </p>
-            <div className="mt-6 flex flex-col gap-8">
+            <div className="mt-10 flex flex-col gap-8">
               {artists.slice(0, 5).map((artist) => {
                 return (
                   <div key={artist} className="flex items-center gap-6">
-                    <p className="text-xl heading font-medium">
+                    <p className="text-2xl heading font-extrabold">
                       {artists.lastIndexOf(artist) + 1}.
                     </p>
-                    <div className="size-[70px] overflow-hidden rounded-full bg-neutral-700">
+                    <div className="size-[80px] overflow-hidden rounded-full bg-neutral-700">
                       <img src={artist.images[0].url} alt="" />
                     </div>
-                    <p className="heading tracking-wide text-lg font-bold">
+                    <p className="heading tracking- text-xl font-bold">
                       {artist.name}
                     </p>
                   </div>
