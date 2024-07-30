@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import Artist from "../components/Artist";
 import domtoimage from "dom-to-image";
+import { saveAs } from "file-saver";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 
