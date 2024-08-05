@@ -1,74 +1,49 @@
-import React, { useState, useEffect } from "react";
+// import React, { useState, useEffect, useCallback } from "react";
 import Nav from "../components/Nav";
-import {
-  getReturnedParamsFromAuth,
-  getTopArtist,
-  getTopTracks,
-  getCurrent,
-  getRecents,
-} from "../auth";
+import { getReturnedParamsFromAuth, getTopArtist, getTopTracks } from "../auth";
 import Artists from "./Artists";
 import Tracks from "./Tracks";
 import ScrollView from "../ScrollView";
 import ScaleLoader from "react-spinners/ScaleLoader";
-import CurrentlyPlaying from "./CurrentlyPlaying";
-import Recent from "./Recent";
+import { useCallback, useEffect, useState } from "react";
 
 function Render() {
-  const [topArtists, setTopArtist] = useState([]);
+  const [topArtists, setTopArtists] = useState([]);
   const [topSongs, setTopSongs] = useState([]);
-  const [currentTrack, setCurrent] = useState(null);
-  const [recents, setRecents] = useState([]);
   const [timeRange, setTimeRange] = useState("short_term");
-  const [trackSize, setSize] = useState(10);
+  const [trackSize, setTrackSize] = useState(10);
   const [loading, setLoading] = useState(true);
 
-  // const selcted_timeRange = useRef();
-
-  useEffect(() => {
+  const setData = useCallback(async () => {
     if (window.location.hash) {
       const { access_token } = getReturnedParamsFromAuth(window.location.hash);
-      const setData = async () => {
-        // const selectedRange = timeRange;
-        // console.log(selectedRange);
-        const artisteData = await getTopArtist(access_token, timeRange);
-        console.log(artisteData);
-        setTopArtist(artisteData.items);
-        const songData = await getTopTracks(access_token, timeRange, trackSize);
-        setTopSongs(songData.items);
-        // const current = await getCurrent(access_token);
-        // setCurrent(current);
-        const recent = await getRecents(access_token);
-        setRecents(recent.items);
-        setLoading(false);
-      };
-      setData();
+      const artistData = await getTopArtist(access_token, timeRange);
+      setTopArtists(artistData.items);
+      const songData = await getTopTracks(access_token, timeRange, trackSize);
+      setTopSongs(songData.items);
+      setLoading(false);
     }
   }, [timeRange, trackSize]);
-  const timerange = (range) => {
-    setTimeRange(range);
-  };
-  const songSize = (size) => {
-    setSize(size);
-  };
+
+  useEffect(() => {
+    setData();
+  }, [setData]);
+
+  const handleTimeRangeChange = (range) => setTimeRange(range);
+
   return (
     <ScrollView>
-      <Nav timerange={timerange} />
-      {/* {!loading && currentTrack !== null && (
-        <CurrentlyPlaying currentTrack={currentTrack} />
-      )} */}
+      <Nav timerange={handleTimeRangeChange} />
       {!loading ? (
         <>
           <Artists artists={topArtists} range={timeRange} />
-          <Tracks tracks={topSongs} size={songSize} />
+          <Tracks tracks={topSongs} size={setTrackSize} />
         </>
       ) : (
         <div className="absolute top-0 left-0 w-full h-screen flex items-center justify-center">
           <ScaleLoader color="#ffffff" />
         </div>
       )}
-
-      {/* {recents?.length > 0 && <Recent recents={recents} />} */}
     </ScrollView>
   );
 }

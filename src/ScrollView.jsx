@@ -31,7 +31,7 @@ const ScrollView = ({ children }) => {
   // 5.
   useEffect(() => {
     requestAnimationFrame(() => smoothScrollingHandler());
-  }, []);
+  });
 
   const smoothScrollingHandler = () => {
     data.current = window.scrollY;

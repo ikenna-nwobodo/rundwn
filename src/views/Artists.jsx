@@ -1,14 +1,14 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useRef } from "react";
 import Artist from "../components/Artist";
-import domtoimage from "dom-to-image";
-import { saveAs } from "file-saver";
+// import domtoimage from "dom-to-image";
+// import { saveAs } from "file-saver";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 
 function Artists({ artists, range }) {
   const scrollRef = useRef(null);
 
-  const [seletedRange, setRange] = useState(range);
+  // const [seletedRange, setRange] = useState(range);
 
   const scrollRight = (offset) => {
     scrollRef.current.scrollLeft += offset;
@@ -31,23 +31,23 @@ function Artists({ artists, range }) {
     );
   });
 
-  var node = document.getElementById("artist-capture");
+  // var node = document.getElementById("artist-capture");
 
-  const download = () => {
-    domtoimage.toBlob(node).then(function (blob) {
-      window.saveAs(blob, "rundwn.png");
-    });
-  };
+  // const download = () => {
+  //   domtoimage.toBlob(node).then(function (blob) {
+  //     window.saveAs(blob, "rundwn.png");
+  //   });
+  // };
 
-  useEffect(() => {
-    if (range === "short_term") {
-      setRange("4 weeks");
-    } else if (range === "medium_term") {
-      setRange("6 months");
-    } else if (range === "long_term") {
-      setRange("All time");
-    }
-  }, [range]);
+  // useEffect(() => {
+  //   if (range === "short_term") {
+  //     setRange("4 weeks");
+  //   } else if (range === "medium_term") {
+  //     setRange("6 months");
+  //   } else if (range === "long_term") {
+  //     setRange("All time");
+  //   }
+  // }, [range]);
 
   // range(seletedRange)
 
@@ -64,7 +64,7 @@ function Artists({ artists, range }) {
           {artists.map((artist) => {
             return (
               <Artist
-                key={artist.id}
+                key={artist.name}
                 image={artist.images[0].url}
                 name={artist.name}
                 index={artists.lastIndexOf(artist) + 1}
@@ -73,7 +73,7 @@ function Artists({ artists, range }) {
             );
           })}
         </div>
-        <button
+        {/* <button
           onClick={download}
           className="bg-white flex items-center justify-center gap-1 mt-8 text-primary font-medium tracking-tight text-sm p-1 md:size-14 rounded md:rounded-full fixed top-12 right-8 md:top-24 md:right-44 z-50"
         >
@@ -91,7 +91,7 @@ function Artists({ artists, range }) {
               d="M9 8.25H7.5a2.25 2.25 0 0 0-2.25 2.25v9a2.25 2.25 0 0 0 2.25 2.25h9a2.25 2.25 0 0 0 2.25-2.25v-9a2.25 2.25 0 0 0-2.25-2.25H15m0-3-3-3m0 0-3 3m3-3V15"
             />
           </svg>
-        </button>
+        </button> */}
         <div
           onClick={() => scrollLeft(-700)}
           className="bg-white/70 selection:bg-transparent selection:text-black backdrop-blur-lg w-14 h-14 cursor-pointer rounded-full hidden md:flex justify-center items-center fixed top-32 right-24 z-50"
@@ -109,7 +109,7 @@ function Artists({ artists, range }) {
           </span>
         </div>
       </div>
-      <div className="artist-img-container absolute top-10 opacity-0 -z-10">
+      {/* <div className="artist-img-container absolute top-10 opacity-0 -z-10">
         <div id="artist-capture" className="bg-primary w-[500px] pr-28 py-20 pl-10">
           <div className="x-box-cont">
             <p className="headingmid text-3xl font-bold tracking-tight text-white">
@@ -118,7 +118,7 @@ function Artists({ artists, range }) {
             <div className="mt-10 flex flex-col gap-8">
               {artists.slice(0, 5).map((artist) => {
                 return (
-                  <div key={artist} className="flex items-center gap-6">
+                  <div key={artist.name} className="flex items-center gap-6">
                     <p className="text-2xl heading font-extrabold">
                       {artists.lastIndexOf(artist) + 1}.
                     </p>
@@ -134,7 +134,7 @@ function Artists({ artists, range }) {
             </div>
           </div>
         </div>
-      </div>
+      </div> */}
     </div>
   );
 }

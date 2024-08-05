@@ -1,6 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,200;9..40,300;9..40,400;9..40,500;9..40,600;9..40,700&display=swap");
 @font-face {
   font-family: "Clash";
@@ -50,9 +51,9 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-@layer components{
-  .trackList{
-    @apply flex flex-wrap justify-center md:gap-2 gap-4 md:bg-transparent py-4 px-2 md:p-0 rounded-lg bg-opacity-40 border border-[##ffffff4d] md:border-none backdrop-blur-[6.6px]
+@layer components {
+  .trackList {
+    @apply flex flex-wrap justify-center md:gap-2 gap-4 md:bg-transparent py-4 px-2 md:p-0 rounded-lg bg-opacity-40 border border-[##ffffff4d] md:border-none backdrop-blur-[6.6px];
   }
 }
 code {
@@ -60,14 +61,17 @@ code {
     monospace;
 }
 .heading {
-  font-family: "Clash";
+  /* font-family: "Clash"; */
+  font-family: "Raleway", sans-serif;
 }
 .headingmid {
-  font-family: "ClashMid";
+  /* font-family: "ClashMid"; */
+  font-family: "Raleway", sans-serif;
 }
 *,
 p {
-  font-family: "DM Sans", sans-serif;
+  /* font-family: "DM Sans", sans-serif; */
+  font-family: "Plus Jakarta Sans", sans-serif;
 }
 .content,
 .overlay {

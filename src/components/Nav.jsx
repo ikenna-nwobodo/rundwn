@@ -34,8 +34,8 @@ function Nav({ timerange }) {
   return (
     <div className="sticky top-0 z-[80] flex justify-between items-center backdrop-blur-xl px-4 md:px-10 py-4">
       <div className="flex gap-1 items-baseline">
-        <p className="headingmid text-3xl md:leading-4 text-white">RunDwn</p>
-        <div className="h-2 w-2 bg-white rounded-xl"></div>
+        <p className="headingmid text-xl font-bold md:leading-4 text-white">RunDwn</p>
+        {/* <div className="h-2 w-2 bg-white rounded-xl"></div> */}
       </div>
       <div className="relative text-black text-sm min-w-[20%] sm:min-w-[10%] font-medium rounded-sm outline-0  border-[#EAEAEA]">
         <div
@@ -51,18 +51,18 @@ function Nav({ timerange }) {
                 : selected
               : placeholder}
           </p>
-          <span class={`${open && "rotate-180"}`}>
+          <span className={`${open && "rotate-180"}`}>
             <svg
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
               viewBox="0 0 24 24"
-              stroke-width="1.5"
+              strokeWidth="1.5"
               stroke="currentColor"
-              class="size-4"
+              className="size-4"
             >
               <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
+                strokeLinecap="round"
+                strokeLinejoin="round"
                 d="m19.5 8.25-7.5 7.5-7.5-7.5"
               />
             </svg>
