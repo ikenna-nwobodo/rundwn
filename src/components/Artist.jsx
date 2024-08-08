@@ -1,11 +1,17 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 
 function Artist({ image, name, index, url }) {
+  const [artistIndex, setartistIndex] = useState(index);
+  useEffect(() => {
+    if (index < 10) {
+      setartistIndex("0" + index);
+    } else {
+      setartistIndex(index);
+    }
+  }, [index]);
   return (
     <div className="md:pl-4 flex gap-4 w-max artist">
-      <p className="text-2xl heading text-white/80 font-bold">
-        {index}.
-      </p>
+      <p className="text-2xl heading text-white/80 font-bold">{artistIndex}.</p>
       <a
         href={url}
         target="_blank"
