@@ -23,7 +23,7 @@ function Track({
 
   return (
     <div className="flex items-center gap-4 pt-4 w-full relative">
-      <p className="hidden sm:block text-lg heading text-white/80 font-semibold">
+      <p className="text-lg heading text-white/80 font-semibold">
         {trackIndex}.
       </p>
       <a
@@ -33,7 +33,7 @@ function Track({
         className="sm:hover:scale-[1.01] flex items-center w-full"
       >
         <img src={image} alt={name} className="size-[60px]" />
-        <div className="text-sm flex grow w-full ml-6 justify-between items-center">
+        <div className="text-sm flex grow w-full ml-3 sm:ml-6 justify-between items-center">
           <div className="grow">
             <a
               href={trackUrl}
